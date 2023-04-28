@@ -1,6 +1,6 @@
 # AWS MWAA Terraform Module
 
-Terraform module which creates AWS MWAA resources and connects them together. 
+Terraform module which creates AWS MWAA resources and connects them together.
 
 ## How to
 
@@ -9,7 +9,7 @@ Use this code to create a basic MWAA environment (using all default parameters, 
 module "airflow" {
   source = "idealo/mwaa/aws"
   version = "x.x.x"
-  
+
   account_id = "12345679"
   environment_name = "MyEnvironment"
   internet_gateway_id = "ig-12345"
@@ -103,7 +103,7 @@ resource "aws_s3_bucket_public_access_block" "mwaa" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.61.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.65.0 |
 
 ## Modules
 
@@ -156,6 +156,8 @@ No modules.
 | <a name="input_public_subnet_cidrs"></a> [public\_subnet\_cidrs](#input\_public\_subnet\_cidrs) | CIDR blocks for the public subnets MWAA uses. Must be at least 2 if create\_networking\_config=true | `list(string)` | `[]` | no |
 | <a name="input_region"></a> [region](#input\_region) | AWS Region where the environment and its resources will be created | `string` | n/a | yes |
 | <a name="input_requirements_s3_object_version"></a> [requirements\_s3\_object\_version](#input\_requirements\_s3\_object\_version) | n/a | `string` | `null` | no |
+| <a name="input_startupscript_s3_path"></a> [startupscript\_s3\_object\_version](#input\_startupscript\_s3\_object\_version) | relative path to the startup script hosted in your bucket | `string` | `null` | no |
+| <a name="input_startupscript_s3_object_version"></a>[startupscript\_s3\_object\_version](#input\_startupscript\_s3\_object\_version) | n/a | `string` | `null` | no |
 | <a name="input_requirements_s3_path"></a> [requirements\_s3\_path](#input\_requirements\_s3\_path) | relative path of the requirements.txt (incl. filename) within the source bucket | `string` | `null` | no |
 | <a name="input_scheduler_logs_enabled"></a> [scheduler\_logs\_enabled](#input\_scheduler\_logs\_enabled) | n/a | `bool` | `true` | no |
 | <a name="input_scheduler_logs_level"></a> [scheduler\_logs\_level](#input\_scheduler\_logs\_level) | One of: DEBUG, INFO, WARNING, ERROR, CRITICAL | `string` | `"WARNING"` | no |
